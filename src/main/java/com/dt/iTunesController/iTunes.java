@@ -1,5 +1,7 @@
 package com.dt.iTunesController;
+
 import com.jacob.activeX.ActiveXComponent;
+import com.jacob.com.ComThread;
 import com.jacob.com.Dispatch;
 import com.jacob.com.DispatchEvents;
 
@@ -13,18 +15,18 @@ import com.jacob.com.DispatchEvents;
  * @version 0.2
  */
 public class iTunes {
-
     ActiveXComponent iTunes;
     iTunesEvents iTunesEvents;
     DispatchEvents dispatchEvents;
-
+   
     /**
      * Initiate iTunes Controller.
+     * @return 
      */
-    public iTunes() {
+    public void connect() {
         iTunes = new ActiveXComponent("iTunes.Application");
     }
-    
+
     /**
      * Add an event handler to the iTunes controller.
      * @param itef The class that will handle the iTunes events.
@@ -32,7 +34,7 @@ public class iTunes {
     public void addEventHandler(iTunesEventsInterface itef) {
         iTunesEvents = new iTunesEvents(itef);
         dispatchEvents = new DispatchEvents(iTunes, iTunesEvents);
-        System.out.println("New event handler added.");
+        //System.out.println("New event handler added.");
     }
     
     /**
@@ -333,7 +335,21 @@ public class iTunes {
     public boolean getMute() {
         return iTunes.getPropertyAsBoolean("Mute");
     }
-    
+
+    /**
+     * Toggle the mute state.
+     */
+    public void toggleMute() {
+        setMute(!getMute());
+    }
+
+    /**
+     * Toggle the shuffle state.
+     */
+    public void toggleShuffle() {
+        getCurrentPlaylist().toggleShuffle();
+    }
+
     /**
      * Returns the current player state.
      * @return Returns the current player state.
@@ -483,5 +499,41 @@ public class iTunes {
     public ITBrowserWindow getBrowserWindow(){
         Dispatch window = iTunes.getProperty("BrowserWindow").toDispatch();
     	return new ITBrowserWindow(window);
+    }
+
+    public void cycleSongRepeat() {
+        getCurrentPlaylist().cycleSongRepeat();
+    }
+
+    public ITPlaylist getPlaylist(String name) {
+        ITPlaylistCollection playlistCollection = getLibrarySource().getPlaylists();
+        ITPlaylist playlist = playlistCollection.ItemByName(name);
+        try {
+            playlist.getName();
+        } catch (IllegalStateException e) {
+            playlist = createPlaylist(name);
+        }
+        return playlist;
+    }
+
+    public ITUserPlaylist getUserPlaylist(String name) {
+        ITPlaylist playlist = getPlaylist(name);
+        ITUserPlaylist userPlaylist = new ITUserPlaylist(playlist.fetchDispatch());
+        return userPlaylist;
+    }
+
+    public void playlistAddTrack(String name, ITTrack track) {
+        ITUserPlaylist userPlaylist = getUserPlaylist(name);
+        if (!userPlaylist.containsTrack(track)) {
+            userPlaylist.addTrack(track);
+        }
+    }
+
+    public void playlistAddCurrentTrack(String name) {
+        playlistAddTrack(name, getCurrentTrack());
+    }
+
+    public void release() {
+        ComThread.Release();
     }
 }

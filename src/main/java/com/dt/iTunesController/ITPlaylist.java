@@ -118,6 +118,14 @@ public class ITPlaylist extends ITObject {
     }
     
     /**
+     * Cycle repeat modes.
+     */
+    public void cycleSongRepeat() {
+        int repeat = Dispatch.get(object, "SongRepeat").getInt();
+        Dispatch.put(object, "SongRepeat", (repeat + 1) % 3);
+    }
+    
+    /**
      * Returns the playback repeat mode.
      * @return Returns the playback repeat mode.
      */
@@ -149,5 +157,24 @@ public class ITPlaylist extends ITObject {
     public ITTrackCollection getTracks() {
         Dispatch tracks = Dispatch.get(object, "Tracks").toDispatch();
         return new ITTrackCollection(tracks);
+    }
+
+    /**
+     * Returns the shuffle state.
+     * @return true if current state is shuffle.
+     */
+    public boolean getShuffle() {
+        return Dispatch.get(object, "Shuffle").getBoolean();
+    }
+    
+    /**
+     * Toggle the shuffle state.
+     */
+    public void toggleShuffle() {
+        setShuffle(!getShuffle());
+    }
+    
+    public boolean containsTrack(ITTrack track) {
+        return getTracks().containsTrack(track);
     }
 }

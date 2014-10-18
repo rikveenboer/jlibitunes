@@ -4,14 +4,14 @@ apply plugin: 'eclipse'
 
 group = 'com.dt'
 archivesBaseName = 'iTunesController'
-version = '0.2'
+version = '0.3'
 
 repositories {
     mavenCentral() 
 }
 
 dependencies {
-    compile 'net.sf.jacob-project:jacob:1.+'
+    compile 'net.sf.jacob-project:jacob:1.14.3'
 }
 
 uploadArchives {

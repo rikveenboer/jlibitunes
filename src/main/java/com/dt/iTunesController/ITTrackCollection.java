@@ -88,4 +88,12 @@ public class ITTrackCollection {
         return new ITTrack(item);
     }
 
+    public boolean containsTrack(ITTrack track) {
+        String name = track.getName();
+        try {
+            return ItemByName(name).getName().equals(name);
+        } catch (IllegalStateException e) {
+            return false;
+        }
+    }
 }
