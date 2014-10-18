@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+
+group = 'com.dt'
+archivesBaseName = 'iTunesController'
+version = '0.2'
+
+repositories {
+    mavenCentral() 
+}
+
+dependencies {
+    compile 'net.sf.jacob-project:jacob:1.+'
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: uri('.maven'))
+    }
+}
