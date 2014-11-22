@@ -19,3 +19,7 @@ uploadArchives {
         repository(url: uri('.maven'))
     }
 }
+
+jar {
+	from sourceSets.main.allSource
+}
