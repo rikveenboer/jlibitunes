@@ -2,16 +2,27 @@ apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
 
-group = 'com.dt'
+group = 'com.github.boukefalos'
 archivesBaseName = 'jlibitunes'
 version = '0.3'
 
+task wrapper(type: Wrapper) {
+	gradleVersion = '1.12'
+}
+
 repositories {
+	maven {
+		url 'https://github.com/Boukefalos/jlibloader/raw/mvn-repo/'
+	}
+	maven {
+		url 'https://github.com/Boukefalos/jlibcom/raw/mvn-repo/'
+	}
     mavenCentral() 
 }
 
 dependencies {
-    compile 'net.sf.jacob-project:jacob:1.14.3'
+	compile 'com.github.boukefalos:jlibcom:1.18'
+	compile 'com.github.boukefalos:jlibloader:0.1'
 }
 
 uploadArchives {
