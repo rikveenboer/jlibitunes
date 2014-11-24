@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <groupId>com.dt</groupId>
+  <groupId>com.github.boukefalos</groupId>
   <artifactId>jlibitunes</artifactId>
   <version>0.3</version>
   <versioning>
     <versions>
       <version>0.3</version>
     </versions>
-    <lastUpdated>20141122191852</lastUpdated>
+    <lastUpdated>20141124130558</lastUpdated>
   </versioning>
 </metadata>
