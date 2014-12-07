@@ -9,7 +9,7 @@
     <dependency>
       <groupId>com.github.boukefalos</groupId>
       <artifactId>jlibcom</artifactId>
-      <version>1.18</version>
+      <version>1.15</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
