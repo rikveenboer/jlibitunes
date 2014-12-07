@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-	compile 'com.github.boukefalos:jlibcom:1.18'
+	compile 'com.github.boukefalos:jlibcom:1.15'
 }
 
 uploadArchives {
