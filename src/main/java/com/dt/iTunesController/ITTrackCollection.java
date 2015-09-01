@@ -42,14 +42,14 @@ public class ITTrackCollection {
         Dispatch item = Dispatch.call(object, "Item", index).toDispatch();
         ITTrack track = new ITTrack(item);
         if (track.getKind()==ITTrackKind.ITTrackKindFile) {
-        	return new ITFileOrCDTrack(item);
+            return new ITFileOrCDTrack(item);
         } else if (track.getKind()==ITTrackKind.ITTrackKindCD) {
-            	return new ITFileOrCDTrack(item);
+                return new ITFileOrCDTrack(item);
         } else if (track.getKind()==ITTrackKind.ITTrackKindURL ) {
-        	return new ITURLTrack(item);
+            return new ITURLTrack(item);
         } else {
-        	return track;
-		}
+            return track;
+        }
     }
     
     /**

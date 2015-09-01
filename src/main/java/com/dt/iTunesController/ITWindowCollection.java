@@ -20,7 +20,7 @@ public class ITWindowCollection {
         object = d;
     }
 
-	// TODO: iTunes.getWindows()
+    // TODO: iTunes.getWindows()
     
     /**
      * Returns the number of playlists in the collection.

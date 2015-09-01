@@ -37,7 +37,7 @@ public class ITArtwork extends ITObject {
         return ITArtworkFormat.values()[Dispatch.get(object, "Format").getInt()];
     }
 
-	// TODO: Comments
+    // TODO: Comments
     
     public boolean getIsDownloadedArtwork() {
         return Dispatch.get(object, "IsDownloadedArtwork").getBoolean();

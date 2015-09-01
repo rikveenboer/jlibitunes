@@ -10,9 +10,9 @@ package com.dt.iTunesController;
  */
 public class ITObjectPersistentID {
 
-	private long High;
-	private long Low;
-	private String hexString;
+    private long High;
+    private long Low;
+    private String hexString;
 
     /**
      * Create the ITObjectPersistentID. This class is not intended to be created
@@ -21,33 +21,33 @@ public class ITObjectPersistentID {
      * @param high The High Persistent ID
      * @param low The Low Persistent ID
      */
-	public ITObjectPersistentID(long high, long low) {
-		this.High=high;
-		this.Low=low;
-		this.hexString = String.format("%8s%8s",Long.toHexString(this.High),Long.toHexString(this.Low)).toUpperCase().replace(' ','0');
-	}
+    public ITObjectPersistentID(long high, long low) {
+        this.High=high;
+        this.Low=low;
+        this.hexString = String.format("%8s%8s",Long.toHexString(this.High),Long.toHexString(this.Low)).toUpperCase().replace(' ','0');
+    }
 
     /**
      * Returns the high persistent ID.
      * @return The high persistent ID.
      */
-	public long getHigh() {
-		return this.High;
-	}
+    public long getHigh() {
+        return this.High;
+    }
 
     /**
      * Returns the low persistent ID.
      * @return The low persistent ID.
      */
-	public long getLow() {
-		return this.Low;
-	}
+    public long getLow() {
+        return this.Low;
+    }
 
     /**
      * Return a string representation (in hex) of the persistent IDs.
      * @return String representation of the persistent IDs.
      */
-	public String toString() {
-		return this.hexString;
-	}
+    public String toString() {
+        return this.hexString;
+    }
 }

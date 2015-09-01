@@ -6,8 +6,8 @@ package com.dt.iTunesController;
  * @version 0.2
  */
 public enum ITArtworkFormat {
-	ITArtworkFormatUnknown, 
-	ITArtworkFormatJPEG, 
-	ITArtworkFormatPNG, 
-	ITArtworkFormatBMP;	
+    ITArtworkFormatUnknown, 
+    ITArtworkFormatJPEG, 
+    ITArtworkFormatPNG, 
+    ITArtworkFormatBMP;    
 }

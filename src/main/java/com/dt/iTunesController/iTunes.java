@@ -413,14 +413,14 @@ public class iTunes {
         Dispatch item = iTunes.getProperty("CurrentTrack").toDispatch();
         ITTrack track = new ITTrack(item);
         if (track.getKind()==ITTrackKind.ITTrackKindFile) {
-        	return new ITFileOrCDTrack(item);
+            return new ITFileOrCDTrack(item);
         } else if (track.getKind()==ITTrackKind.ITTrackKindCD) {
-            	return new ITFileOrCDTrack(item);
+                return new ITFileOrCDTrack(item);
         } else if (track.getKind()==ITTrackKind.ITTrackKindURL ) {
-        	return new ITURLTrack(item);
+            return new ITURLTrack(item);
         } else {
-        	return track;
-		}
+            return track;
+        }
     }
     
     /**
@@ -493,12 +493,12 @@ public class iTunes {
     }
     
     public ITObjectPersistentID getObjectPersistentIDs(ITObject iObject){
-    	return new ITObjectPersistentID(getITObjectPersistentIDHigh(iObject),getITObjectPersistentIDLow(iObject));
+        return new ITObjectPersistentID(getITObjectPersistentIDHigh(iObject),getITObjectPersistentIDLow(iObject));
     }
 
     public ITBrowserWindow getBrowserWindow(){
         Dispatch window = iTunes.getProperty("BrowserWindow").toDispatch();
-    	return new ITBrowserWindow(window);
+        return new ITBrowserWindow(window);
     }
 
     public void cycleSongRepeat() {

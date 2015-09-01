@@ -6,8 +6,8 @@ package com.dt.iTunesController;
  * @version 0.2
  */
 public enum ITVideoKind {
-	  ITVideoKindNone, 
-	  ITVideoKindMovie, 
-	  ITVideoKindMusicVideo, 
-	  ITVideoKindTVShow;
+      ITVideoKindNone, 
+      ITVideoKindMovie, 
+      ITVideoKindMusicVideo, 
+      ITVideoKindTVShow;
 }

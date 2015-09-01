@@ -25,7 +25,7 @@ public class ITBrowserWindow extends ITWindow {
         return Dispatch.get(object, "MiniPlayer").getBoolean();
     }
 
-	// TODO: Comments
+    // TODO: Comments
     
     public ITTrackCollection getSelectedTracks() {
         Dispatch collection = Dispatch.call(object, "SelectedTracks").getDispatch();
@@ -38,7 +38,7 @@ public class ITBrowserWindow extends ITWindow {
     }
 
     public void setSelectedPlaylist(ITPlaylist playlist) {
-    	Dispatch dispatchRef = playlist.fetchDispatch();
+        Dispatch dispatchRef = playlist.fetchDispatch();
         Dispatch.put(object, "SelectedPlaylist", dispatchRef);
     }
 
